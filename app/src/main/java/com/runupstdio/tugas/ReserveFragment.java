@@ -1,10 +1,11 @@
 package com.runupstdio.tugas;
 
 
+import android.app.ActionBar;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 
 /**
@@ -23,10 +23,10 @@ public class ReserveFragment extends Fragment {
     public ReserveFragment() {
         // Required empty public constructor
     }
-
+    ActionBar actionBar;
     TextView mjamMulai;
     TimePickerDialog timePickerDialog;
-    Button mbtnPesan;
+    Button mbtnPesan, mbtnBatalPesan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,12 +57,25 @@ public class ReserveFragment extends Fragment {
             }
         });
 
+        mbtnBatalPesan = v.findViewById(R.id.batalReserve);
+        mbtnBatalPesan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                actionBar = getSupportActionBar();
+//                actionBar.setTitle("Reservasi");
+                BerandaFragment fragment = new BerandaFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
         return v;
     }
 
     public void openDialog(){
-        exDialog exDialog = new exDialog();
-        exDialog.show(getFragmentManager(), "example dialog");
+        ReserveDialog ReserveDialog = new ReserveDialog();
+        ReserveDialog.show(getFragmentManager(), "reserve dialog");
     }
 
 }

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 
-public class exDialog extends AppCompatDialogFragment {
+public class ReserveDialog extends AppCompatDialogFragment {
 
 
     @Override

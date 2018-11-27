@@ -91,7 +91,12 @@ public class NavigationActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.frameLayout, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.menu) {
-
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("Menu");
+            MenuFragment fragment = new MenuFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.reservasi) {
             actionBar = getSupportActionBar();
             actionBar.setTitle("Reservasi");
