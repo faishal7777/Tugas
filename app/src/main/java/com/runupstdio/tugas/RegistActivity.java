@@ -14,7 +14,7 @@ public class RegistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
 
-        mbatalSignUp = findViewById(R.id.login_signUp);
+        mbatalSignUp = findViewById(R.id.batalSignUp);
         mbatalSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
