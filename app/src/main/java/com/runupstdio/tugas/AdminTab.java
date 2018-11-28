@@ -3,6 +3,8 @@ package com.runupstdio.tugas;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 public class AdminTab extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,12 +83,27 @@ public class AdminTab extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
+        if (id == R.id.berandaAdmin) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("Beranda");
+            AdminBerandaFragment fragment = new AdminBerandaFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
+        } else if (id == R.id.menuAdmin) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("Menu");
+            ListAdminPesanan fragment = new ListAdminPesanan();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
+        } else if (id == R.id.resAdmin) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("Reservasi");
+            ListReserve fragment = new ListReserve();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
